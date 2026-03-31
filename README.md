@@ -1,6 +1,7 @@
 # Multi AI Agent 🧠
 A production-ready Multi AI Agent System built with LangGraph, LangChain, Groq (LLaMA-3.1), and FastAPI, featuring a beautiful Streamlit UI.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://multiaiagent-cmcvrlaop2yjv9twjpsusv.streamlit.app/)
 [![Deploy to Render](https://render.com/images/deploy-to-render.svg)](https://render.com/deploy?repo=https://github.com/ShivanshPandey2005/multi_ai_agent)
 
 ## 🌟 Features
