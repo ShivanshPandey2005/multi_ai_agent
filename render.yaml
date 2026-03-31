@@ -1,0 +1,29 @@
+services:
+  # Backend API
+  - type: web
+    name: multi-ai-agent-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SERPER_API_KEY
+        sync: false
+
+  # Frontend UI
+  - type: web
+    name: multi-ai-agent-ui
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m streamlit run ui/app.py --server.port $PORT
+    envVars:
+      - key: API_URL
+        fromService:
+          name: multi-ai-agent-api
+          type: web
+          property: url
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SERPER_API_KEY
+        sync: false
