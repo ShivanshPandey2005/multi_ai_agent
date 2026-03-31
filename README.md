@@ -58,9 +58,19 @@ graph TD
    ```
 5. Access the UI at **http://localhost:8501**.
 
-## 🛠️ Built With
-- [LangGraph](https://python.langchain.com/docs/langgraph)
-- [LangChain](https://python.langchain.com/)
-- [Groq](https://groq.com/)
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Streamlit](https://streamlit.io/)
+### Option 3: Streamlit Community Cloud (Fastest)
+1. Fork or push this repository to your GitHub account.
+2. Go to [Streamlit Cloud](https://share.streamlit.io/) and create a new app from your repository.
+3. Set the **Main file path** to `streamlit_app.py`.
+4. In the App Settings, go to **Secrets** and add:
+   ```toml
+   GROQ_API_KEY = "your_groq_key"
+   SERPER_API_KEY = "your_serper_key"
+   ```
+5. Click **Deploy**!
+
+## 🧪 Testing the API
+You can test the FastAPI backend directly using the included test script:
+```bash
+python test_api.py
+```
