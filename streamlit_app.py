@@ -3,10 +3,14 @@ import os
 
 # 1. Load API Keys (MUST BE BEFORE ANY LANGCHAIN IMPORTS)
 # Streamlit Community Cloud uses st.secrets for production deployment
-if "GROQ_API_KEY" in st.secrets:
-    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
-if "SERPER_API_KEY" in st.secrets:
-    os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
+try:
+    if "GROQ_API_KEY" in st.secrets:
+        os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+    if "SERPER_API_KEY" in st.secrets:
+        os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
+except Exception:
+    # Secrets not configured yet in the dashboard
+    pass
 
 # For local development if secrets are not available
 if not os.environ.get("GROQ_API_KEY"):
