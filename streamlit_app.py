@@ -1,21 +1,23 @@
 import streamlit as st
-import time
 import os
-from graph.workflow import create_workflow
 
-# 1. Page Configuration
-st.set_page_config(
-    page_title="Multi AI Agent",
-    page_icon="🧠",
-    layout="wide"
-)
-
-# 2. Load API Keys (Secrets or Env)
+# 1. Load API Keys (MUST BE BEFORE ANY LANGCHAIN IMPORTS)
 # Streamlit Community Cloud uses st.secrets for production deployment
 if "GROQ_API_KEY" in st.secrets:
     os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 if "SERPER_API_KEY" in st.secrets:
     os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
+
+# For local development if secrets are not available
+if not os.environ.get("GROQ_API_KEY"):
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
+
+import time
+from graph.workflow import create_workflow
 
 # For local development if secrets are not available
 if not os.environ.get("GROQ_API_KEY"):
