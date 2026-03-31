@@ -1,0 +1,14 @@
+langgraph
+typing_extensions
+langchain-groq
+python-dotenv
+google-search-results
+langchain-community
+fastapi
+uvicorn
+pydantic
+streamlit
+requests
+faiss-cpu
+sentence-transformers
+langchain-huggingface
